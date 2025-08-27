@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jky.znys.team_kpi.dao.ToastContentMapper">
+    <!-- 根据主键查询-->
+    <insert id="addData" parameterType="com.jky.znys.team_kpi.entity.KPIToastContent">
+        INSERT INTO kpitoastcontent(content,udate) VALUES(#{content}, #{udate})
+    </insert>
+    <update id="upDateData" parameterType="com.jky.znys.team_kpi.entity.KPIToastContent">
+        UPDATE kpitoastcontent SET content = #{content},udate = #{udate} where udate=#{udate}
+    </update>
+    <select id="getCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM kpitoastcontent WHERE udate = #{udate}
+    </select>
+    <select id="getDataList" parameterType="java.lang.String" resultType="com.jky.znys.team_kpi.entity.KPIToastContent">
+        SELECT * FROM kpitoastcontent WHERE udate &gt;= #{startTime} AND udate &lt;= #{endTime} ORDER BY udate DESC
+    </select>
+</mapper>
+

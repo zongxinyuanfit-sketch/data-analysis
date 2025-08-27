@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jky.znys.team_kpi.dao.MoneyMakerMapper">
+    <!-- 根据主键查询-->
+    <insert id="insertTotalMoneyDay" parameterType="com.jky.znys.team_kpi.entity.KPITotalMoneyDay">
+        INSERT INTO kpitotalmoneyday(money,udate) VALUES(#{money},#{udate})
+    </insert>
+    <update id="updateTotalMoneyDay" parameterType="com.jky.znys.team_kpi.entity.KPITotalMoneyDay">
+        UPDATE kpitotalmoneyday SET money=#{money},udate=#{udate}  where udate=#{udate}
+    </update>
+    <update id="updateTotalMoneyWeek" parameterType="com.jky.znys.team_kpi.entity.KPITotalMoneyWeek">
+        UPDATE kpitotalmoneyweek SET total=#{total},average=#{average},percent=#{percent} WHERE id=#{id}
+    </update>
+    <update id="updateTotalMoneyMonth" parameterType="com.jky.znys.team_kpi.entity.KPITotalMoneyMonth">
+        UPDATE kpitotalmoneymonth SET total=#{total},average=#{average},percent=#{percent} WHERE id=#{id}
+    </update>
+
+    <select id="getTotalMoneyDay" parameterType="java.lang.String" resultType="com.jky.znys.team_kpi.entity.KPITotalMoneyDay">
+        SELECT * FROM kpitotalmoneyday WHERE udate &gt;= #{start} AND udate &lt;= #{end}
+    </select>
+    <select id="getTotalMoneyWeek" parameterType="java.lang.String" resultType="com.jky.znys.team_kpi.entity.KPITotalMoneyWeek">
+        SELECT * FROM kpitotalmoneyweek WHERE start &lt;= #{udate} AND end &gt;= #{udate}
+    </select>
+    <select id="getTotalMoneyMonthById" parameterType="java.lang.Integer" resultType="com.jky.znys.team_kpi.entity.KPITotalMoneyMonth">
+        SELECT * FROM kpitotalmoneymonth WHERE id=#{id}
+    </select>
+    <select id="getTotalMoneyMonth" parameterType="java.lang.String" resultType="com.jky.znys.team_kpi.entity.KPITotalMoneyMonth">
+        SELECT * FROM kpitotalmoneymonth
+    </select>
+    <select id="getCountUdate" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM kpitotalmoneyday WHERE udate=#{udate}
+    </select>
+</mapper>

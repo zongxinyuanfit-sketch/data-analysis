@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jky.znys.team_kpi.dao.RadixMapper">
+    <!-- 根据主键查询-->
+    <insert id="addData" parameterType="com.jky.znys.team_kpi.entity.KPIRadix">
+        INSERT INTO kpiradix(radix,categoryid,highscore,udate) VALUES(#{radix}, #{categoryid}, #{highscore}, #{udate})
+    </insert>
+    <select id="getDataList" resultType="com.jky.znys.team_kpi.entity.KPIRadix">
+        SELECT * FROM kpiradix
+    </select>
+</mapper>
