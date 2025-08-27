@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jky.znys.team_kpi.dao.ManualMapper">
+    <!-- 根据主键查询-->
+    <insert id="addData" parameterType="com.jky.znys.team_kpi.entity.KPIManual">
+        INSERT INTO kpimanual( mediareadnum,
+           livewxkswys,
+           livewxwys,
+           livekwjk,
+           applitelive,
+           udate,
+           videopv,zfbmoney,zfbreuser,zfblive,newkwjk,fugouwx
+           ) VALUES(
+           #{mediareadnum},
+          #{livewxkswys},
+          #{livewxwys},
+          #{livekwjk},
+          #{applitelive},
+          #{udate},
+          #{videopv},
+           #{zfbmoney},
+           #{zfbreuser},
+           #{zfblive},
+            #{newkwjk},
+            #{fugouwx})
+    </insert>
+    <update id="upDateData" parameterType="com.jky.znys.team_kpi.entity.KPIManual">
+        UPDATE kpimanual SET
+        mediareadnum = #{mediareadnum} ,
+        livewxkswys = #{livewxkswys} ,
+        livewxwys = #{livewxwys} ,
+        livekwjk = #{livekwjk} ,
+        applitelive = #{applitelive} ,
+        udate = #{udate},
+        videopv = #{videopv},
+        zfbmoney = #{zfbmoney},
+        zfbreuser = #{zfbreuser},
+        zfblive = #{zfblive},
+        newkwjk = #{newkwjk},
+        fugouwx = #{fugouwx}
+          where udate=#{udate}
+    </update>
+    <select id="getDataList" parameterType="java.lang.String" resultType="com.jky.znys.team_kpi.entity.KPIManual">
+        SELECT * FROM kpimanual WHERE udate &gt;= #{startTime} AND udate &lt;= #{endTime} ORDER BY udate DESC
+    </select>
+    <select id="getCountUdate" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM kpimanual WHERE udate=#{udate}
+    </select>
+</mapper>
+

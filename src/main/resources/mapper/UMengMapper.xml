@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jky.znys.team_kpi.dao.UMengMapper">
+    <insert id="addData" parameterType="com.jky.znys.team_kpi.entity.KPIUmeng">
+        INSERT INTO kpiumeng(newumengakswys,
+        newumengikswys,
+        liveumengakswys,
+        liveumengikswys,
+        livekyy,
+        newkyy,
+        dcrecommend,
+        tuidanlv,
+        udate,
+        uvwebm,
+        uvwebpc,livexcxkswys,livexcxkswy,livexcxkpy,livexcxzfb,newxcxkswys,newxcxkswy,newxcxkpy,newxcxzfb,pcxcxkswys,pcxcxkswy,pcxcxkpy)
+                    VALUES(#{newumengakswys},
+                    #{newumengikswys},
+                    #{liveumengakswys},
+                    #{liveumengikswys},
+                    #{livekyy},
+                    #{newkyy},
+                    #{dcrecommend},
+                    #{tuidanlv},
+                    #{udate},
+                    #{uvwebm},
+                    #{uvwebpc},#{livexcxkswys},#{livexcxkswy},#{livexcxkpy},#{livexcxzfb},#{newxcxkswys},#{newxcxkswy},#{newxcxkpy},#{newxcxzfb},#{pcxcxkswys},#{pcxcxkswy},#{pcxcxkpy})
+    </insert>
+    <update id="upDateData" parameterType="com.jky.znys.team_kpi.entity.KPIUmeng">
+        UPDATE kpiumeng SET
+        newumengakswys = #{newumengakswys} ,
+        newumengikswys = #{newumengikswys} ,
+        liveumengakswys = #{liveumengakswys} ,
+        liveumengikswys = #{liveumengikswys} ,
+        livekyy = #{livekyy} ,
+        newkyy = #{newkyy} ,
+        dcrecommend = #{dcrecommend} ,
+        tuidanlv = #{tuidanlv} ,
+        udate = #{udate},
+        uvwebm = #{uvwebm} ,
+        uvwebpc = #{uvwebpc} ,
+        livexcxkswys = #{livexcxkswys},
+        livexcxkswy = #{livexcxkswy},
+        livexcxkpy = #{livexcxkpy},
+        livexcxzfb = #{livexcxzfb},
+        newxcxkswys = #{newxcxkswys},
+        newxcxkswy = #{newxcxkswy},
+        newxcxkpy = #{newxcxkpy},
+        newxcxzfb = #{newxcxzfb},
+        pcxcxkswys = #{pcxcxkswys},
+        pcxcxkswy = #{pcxcxkswy},
+        pcxcxkpy = #{pcxcxkpy}
+         WHERE udate=#{udate}
+    </update>
+    <select id="getCount" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM kpiumeng WHERE udate = #{udate}
+    </select>
+    <select id="getDataList" parameterType="java.lang.String" resultType="com.jky.znys.team_kpi.entity.KPIUmeng">
+        SELECT * FROM kpiumeng WHERE udate &gt;= #{startTime} AND udate &lt;= #{endTime} ORDER BY udate DESC
+    </select>
+</mapper>
+

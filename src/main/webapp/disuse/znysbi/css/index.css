@@ -1,0 +1,66 @@
+/* 
+ * @description:  
+ * @author: psr 
+ * @update:2021.01.20
+*/ 
+@charset "utf-8";
+html{font-size: 100%;-webkit-tap-highlight-color: transparent;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;height: 100%;}
+body,textarea,input,select,option{font-size:13px;color:#333;font-family:Microsoft Yahei,Avenir,Segoe UI,Hiragino Sans GB,STHeiti,Microsoft Sans Serif,WenQuanYi Micro Hei,sans-serif;}h1,h2,h3,h4,h5,h6{font-size:100%;}body,h1,h2,h3,h4,h5,h6,blockquote,ol,ul,dl,dd,p,textarea,input,select,option,form{margin:0;}ol,ul,li,textarea,input,select,option,th,td{padding:0;}table{border-collapse:collapse;}ol,ul{list-style-type:none;}.clears:before,.clears:after{content:'';display:table;}.clears:after{clear:both;}.clears{*zoom:1;}.clear{clear:both;height:0;overflow:hidden;}a{text-decoration:none;color:#333;}a,textarea,input{outline:none}textarea{overflow:auto;resize:none;}img{-ms-interpolation-mode: bicubic;display:block;}a img{border:none;}.z_index{position:fixed;_position:absolute;z-index:999;display:none;}label,label input{vertical-align:middle}.pr{position:relative;}.pa{position:absolute;}.fl{float:left;}.fr{float:right;}
+a:hover{text-decoration:underline}
+.d_box{display:-moz-box;display:-webkit-box;display:box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;width:100%;}
+i,var,em{font-style: normal;}.pr{position: relative;}.pa{position: absolute;}
+
+.b_sizing{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.b_flex{ display: -webkit-flex;display: flex;}
+.b_middle{display: -webkit-flex;display: flex;align-items: center;}
+.b_between{display: -webkit-flex;display: flex;justify-content:space-between;}
+.b_lists{display: -webkit-flex;display: flex;justify-content:space-between;flex-wrap:wrap;}
+.b_center{display: -webkit-flex;display: flex;justify-content:space-around}
+.ellipsis_one{white-space: nowrap; overflow: hidden;text-overflow: ellipsis;}
+.ellipsis_two{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:2;}
+.ellipsis_three{overflow:hidden; text-overflow:ellipsis;display:-webkit-box; -webkit-box-orient:vertical;-webkit-line-clamp:3;}
+
+
+body{background-color: #081326;height: 100%;}
+.rowWrap{flex-direction:column; height: 100%;padding:100px 20px 0 20px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.rowWrap>div{flex:1;}
+.viewbox1,.viewbox2,.viewbox3{display: block;-webkit-flex:1;-moz-flex:1;flex:1;}
+.viewbox{background-color: #091629;margin:0 1%;border:6px solid #0b1a36;position: relative; height: 97%;width:98%;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.viewbox::before{position: absolute;content: "";width: 8px;height: 10px;border-top:3px solid #045291;border-left:3px solid #045291;top: -6px;left: -6px; z-index: 2;}
+.viewbox::after{position: absolute;content: "";width: 8px;height: 10px;border-bottom:3px solid #045291;border-right:3px solid #045291;bottom: -6px;right: -6px; z-index: 2;}
+
+.statistics_top{position: fixed;top: 0;left: 0;width: 100%; z-index: 999;height: 90px;border-bottom: 1px solid #136a9f;}
+.statistics_top h1{display: block;text-align: center;font-size: 30px;color:#fff;font-weight: bold;line-height: 90px;}
+.statistics_top .date_time{position: absolute;bottom: 5px;left: 30px; z-index: 2;}
+.date_time .hours{float: left;color:#64e3cc;font-size: 22px;line-height: 36px;margin-right: 10px;}
+.date_time .year{float: left;color:#a9dcd4;font-size: 13px;line-height: 18px;}
+.date_time .day{float: left;color:#a9dcd4;font-size: 13px;line-height: 18px;}
+.statistics_top .area{position: absolute;bottom: 8px;right: 30px; z-index: 2;line-height: 20px;}
+.statistics_top .area img{float: left;width: 20px;}
+.statistics_top .area em{float: left;line-height: 20px;color:#00ccff;font-size: 15px;margin-left: 3px;}
+.statistics_top .checkdate{position: absolute;right: 30px;top: 10px; z-index: 3;}
+.statistics_top .tab{float: left;line-height: 34px;background-color: #fff;font-size: 14px;padding:0 12px;border-radius: 4px;margin-right: 3px; cursor: pointer;}
+.statistics_top .inp{float: left;position: relative; width: 220px;}
+.statistics_top .inp i{position: absolute; bottom: 10px; right: 14px; top: auto; cursor: pointer;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

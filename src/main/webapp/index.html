@@ -1,0 +1,313 @@
+<html>
+<head>
+    <title>智能数据</title>
+    <meta charset="utf-8">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="shortcut icon" href="./img/favicon.ico">
+    <!-- bootstrap 3.0.2 -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <!-- font Awesome -->
+    <link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <!--    <link href="./css/style.css" rel="stylesheet" type="text/css"/>-->
+    <link rel="stylesheet" href="./css/clander/clander.css"/>
+    <link href="./css/toast/toastr.css" rel="stylesheet" type="text/css"/>
+    <!--  newbg css  -->
+    <link rel="stylesheet" type="text/css" href="./newbg/css/demo.css">
+
+    <link rel="stylesheet" type="text/css" href="./newbg/css/style3.css">
+
+    <link rel="stylesheet" type="text/css" href="./newbg/css/ui.css">
+
+    <link rel="stylesheet" type="text/css" href="./newbg/css/style6.css">
+
+    <link rel="stylesheet" type="text/css" href="./newbg/css/stylelogin.css">
+
+    <link rel="stylesheet" type="text/css" href="./newbg/css/styleload.css">
+
+    <link rel="stylesheet" type="text/css" href="./newbg/css/newbg.css">
+
+</head>
+<style>
+    label {
+        font-size: 13px;
+        font-family: 微软雅黑;
+        font-weight: bold;
+    }
+
+    .main_panel {
+        background: #777777;
+        height: 700px;
+        z-index: 21;
+        border-radius: 10px;
+        display: flex;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 840px;
+    }
+    input {
+        width: 100px;
+    }
+</style>
+<body>
+<div id="test" style=" position:fixed;top:0px;z-index:20;"></div>
+
+<div class="col-md-offset-3 main_panel">
+    <div id="left_form"
+         style="background-color: #ffffff;border-radius: inherit;margin: 10px;float: left;width: 400px;">
+        <header class="panel-heading"
+                style="background-color: #61c0bf;border-radius: 5px;margin: 5px;font-weight: bold;font-family: auto;">
+            KPI数据采集
+        </header>
+        <div class="panel-body ">
+            <div class="col-md-6">
+                <label>活跃-快问-菜单点击：</label> <input type="number"
+                                                          class="form-control" id="zy-live-wx-kswys"
+                                                          placeholder="">
+            </div>
+            <div class="col-md-6">
+                <label>活跃-问医生-菜单点击：</label> <input type="number"
+                                                            class="form-control" id="zy-live-wx-wys">
+            </div>
+<!--            <div class="col-md-6">-->
+<!--                <label>活跃-快问健康：</label> <input type="number"-->
+<!--                                                     class="form-control" id="zy-live-kwjk">-->
+<!--            </div>-->
+
+            <div class="col-md-6">
+                <label>微信-活跃：</label> <input type="number"
+                                                 class="form-control" id="zy-fugou-wx">
+            </div>
+
+            <div class="col-md-6">
+                <label>微信-新增：</label> <input type="number"
+                                                 class="form-control" id="yy-video-pv">
+            </div>
+                <!--<div class="col-md-6">
+                    <label>短视频-新增：</label> <input type="number"
+                                                         class="form-control" id="shorts-new">
+                </div>-->
+            <div class="col-md-6">
+                <label>运营-私域-销售额：</label> <input type="number"
+                                                      class="form-control" id="yy-sy-money">
+            </div>
+            <div class="col-md-6">
+                <label>运营-支付宝-日活：</label> <input type="number"
+                                                        class="form-control" id="yy-zfb-live">
+            </div>
+            <div class="col-md-6">
+                <label>运营-支付宝-新增：</label> <input type="number"
+                                                        class="form-control" id="yy-zfb-reuser">
+            </div>
+
+            <div class="col-md-6">
+                <label>日期（不能选当天）：</label>
+                <div class="calendarWarp" style="z-index: 1;">
+                    <input type="date" name="date" class="ECalendar form-control"
+                           id="mediadate"/>
+                </div>
+            </div>
+        </div>
+        <div style="height: 50px; background-color: #c1c1c1;border-radius: 5px;margin: 5px;">
+            <div class="col-sm-6 from-group">
+                <a class="btn btn-info" style="float: left; width: 200px; margin-top: 6px;cursor: none" id="sub_status">操作结果：</a>
+            </div>
+            <div class="col-sm-6 from-group">
+                <a class="btn btn-info" style="float: right; width: 100px; margin-top: 6px;"
+                   onclick="uploadData()">提交</a>
+                <a download="" href="" target="blank" id="downPdf"></a>
+            </div>
+        </div>
+
+        <div>
+            <header class="panel-heading"
+                    style="background-color: #bbded6;border-radius: 5px;margin: 5px;font-weight: bold;font-family: auto;">
+                数据报表下载
+            </header>
+            <div class="panel-body ">
+                <div class="col-md-6">
+                    <label>开始时间：</label>
+                    <div class="calendarWarp" style="z-index: 1;">
+                        <input type="date" name="date" class="ECalendar form-control" id="starttime"/>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label>结束时间：</label>
+                    <div class="calendarWarp" style="z-index: 1;">
+                        <input type="date" name="date" class="ECalendar form-control" id="endtime"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 50px; background-color: #c1c1c1;border-radius: 5px;margin: 5px;">
+
+            <div class="col-sm-6 from-group">
+                <!--                    <a class="btn btn-info" style="float: left;width: 100%; margin: 10px;"-->
+                <!--                       href="bi.html">BI看板</a>-->
+                <a class="btn btn-info" style="float: left; width: 100px; margin-top: 10px;"
+                   onclick="loadExcel()">查询与下载</a>
+                <a download="" href="" target="blank" id="downKPI"></a>
+            </div>
+        </div>
+    </div>
+    <div id="right_manual"
+         style="background-color: #ffffff;border-radius: inherit;margin: 10px;float: right;height: auto;width: 400px;">
+        <div style="background-color: #ffffff;border-radius: inherit;float: left;">
+            <header class="panel-heading"
+                    style="background-color: #ffb6b9;border-radius: 5px;margin: 5px;font-weight: bold;font-family: auto;">
+                未录入友盟数据
+            </header>
+            <div class="panel-body ">
+
+                <div class="col-md-6">
+                    <label>活跃-快问-IOS：</label> <input type="number"
+                                                         class="form-control" id="umeng-live-ios-kswys"
+                                                         placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>活跃-快问-ANDROID：</label> <input type="number"
+                                                             class="form-control" id="umeng-live-android-kswys"
+                                                             placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>活跃-快问-KYY：</label> <input type="number"
+                                                         class="form-control" id="umeng-live-kyy-kswys"
+                                                         placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>新增-快问-IOS：</label> <input type="number"
+                                                         class="form-control" id="umeng-new-ios-kswys"
+                                                         placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>新增-快问-ANDROID：</label> <input type="number"
+                                                             class="form-control" id="umeng-new-android-kswys"
+                                                             placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>新增-快问-KYY：</label> <input type="number"
+                                                         class="form-control" id="umeng-new-kyy-kswys"
+                                                         placeholder="">
+                </div>
+
+
+                <div class="col-md-6">
+                    <label>活跃-快速问医生-WX：</label> <input type="number"
+                                                              class="form-control" id="umeng-live-wx-kswys"
+                                                              placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>活跃-快速问医-WX：</label> <input type="number"
+                                                            class="form-control" id="umeng-live-wx-kswy"
+                                                            placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>活跃-杏林普康-WX：</label> <input type="number"
+                                                            class="form-control" id="umeng-live-wx-xlpk"
+                                                            placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>活跃-快速问医生-ZFB：</label> <input type="number"
+                                                               class="form-control" id="umeng-live-zfb-kswys"
+                                                               placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>新增-快速问医生-WX：</label> <input type="number"
+                                                              class="form-control" id="umeng-new-wx-kswys"
+                                                              placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>新增-快速问医-WX：</label> <input type="number"
+                                                            class="form-control" id="umeng-new-wx-kswy"
+                                                            placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>新增-杏林普康-WX：</label> <input type="number"
+                                                            class="form-control" id="umeng-new-wx-xlpk"
+                                                            placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>新增-快速问医生-ZFB：</label> <input type="number"
+                                                               class="form-control" id="umeng-new-zfb-kswys"
+                                                               placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>爬虫-快速问医生-WX：</label> <input type="number"
+                                                              class="form-control" id="umeng-pchong-wx-kswys"
+                                                              placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>爬虫-快速问医-WX：</label> <input type="number"
+                                                            class="form-control" id="umeng-pchong-wx-kswy"
+                                                            placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>爬虫-杏林普康-WX：</label> <input type="number"
+                                                            class="form-control" id="umeng-pchong-wx-xlpk"
+                                                            placeholder="">
+                </div>
+                <div class="col-md-6">
+                    <label>日期（不能选当天）：</label>
+                    <div class="calendarWarp" style="z-index: 1;">
+                        <input type="date" name="date" class="ECalendar form-control"
+                               id="umengdate"/>
+                    </div>
+                </div>
+                <div>
+                    <a class="btn btn-info" style="float: right; width: 100px; margin-top: 26px;"
+                       onclick="uploadUMData()">提交</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="./js/jquery.min.js" type="text/javascript"></script>
+
+<!-- Bootstrap -->
+<script src="./js/bootstrap.min.js" type="text/javascript"></script>
+<script src="./js/clander/Ecalendar.jquery.min.js" type="text/javascript"></script>
+<!-- local js file -->
+
+<script src="./js/index/index.js" type="text/javascript"></script>
+<script src="./js/data/parambuilder.js" type="text/javascript"></script>
+<script src="./js/toast/toastr.js" type="text/javascript"></script>
+<script src="./js/toast/toastdp.js" type="text/javascript"></script>
+<!--  newbg css  -->
+<script type="text/javascript" src="./newbg/js/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript" src="./newbg/js/form.js"></script>
+
+<!--<script src="newbg/js/jquery.jgrowl.js" type="text/javascript"></script>-->
+
+<script type="text/javascript" src="./newbg/js/modernizr.custom.79639.js"></script>
+
+<script type="text/javascript" src="./newbg/js/jquery.swatchbook.js"></script>
+
+<script type="text/javascript" src="./newbg/js/sketch.min.js"></script>
+
+<script type="text/javascript" src="./newbg/js/ui.js"></script>
+
+<script type="text/javascript" src="./newbg/js/jquery.dropdown.js"></script>
+
+<script src="./newbg/js/modernizr.custom.63321.js"></script>
+
+<!-- 	<script type="text/javascript" src="js/jquery.placeholder.min.js"></script> -->
+
+<script type="text/javascript" src="./newbg/js/PisualFumikaLogin.js"></script>
+<script type="text/javascript" src="./newbg/js/newbg.js"></script>
+<script>
+    // window.onload = function () {
+    //     let left_height = document.getElementById("left_form").offsetHeight
+    //     document.getElementById("right_manual").style.height = left_height
+    // }
+</script>
+</html>
